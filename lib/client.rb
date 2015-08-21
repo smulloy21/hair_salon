@@ -1,5 +1,5 @@
 class Client
-  
+
   attr_reader(:id, :name, :phone, :stylist_id)
 
   define_method(:initialize) do |attributes|
@@ -23,7 +23,7 @@ class Client
   end
 
   define_method(:==) do |other|
-    self.id == other.id
+    self.id() == other.id()
   end
 
   define_method(:save) do
@@ -47,6 +47,11 @@ class Client
       @stylist_id = attributes.fetch(:stylist_id)
       DB.exec("UPDATE clients SET stylist_id = #{stylist_id} WHERE id = #{self.id()};")
     end
+  end
+
+  define_method(:remove_stylist) do
+    @stylist_id = nil
+    DB.exec("UPDATE clients SET stylist_id = NULL WHERE id = #{self.id()};")
   end
 
   define_method(:delete) do

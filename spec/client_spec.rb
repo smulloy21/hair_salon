@@ -62,6 +62,16 @@ describe(Client) do
     end
   end
 
+  describe('#remove_stylist') do
+    it('removes a clients stylist') do
+      test_client = Client.new({:name => 'Steve', :phone => 555-3435})
+      test_client.save()
+      test_client.update({:stylist_id => 5})
+      test_client.remove_stylist()
+      expect(test_client.stylist_id()).to(eq(nil))
+    end
+  end
+
   describe('#delete') do
     it('deletes a client from the database') do
       test_client = Client.new({:name => 'Steve', :phone => 555-3435})
@@ -70,5 +80,5 @@ describe(Client) do
       expect(Client.find(test_client.id())).to(eq([]))
     end
   end
-  
+
 end
