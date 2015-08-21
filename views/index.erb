@@ -1,5 +1,6 @@
 <h2>Hair Salon</h2>
 
+<h3>Stylists:</h3>
 <% if @stylists.any?() %>
   <ul>
     <% @stylists.each() do |stylist| %>
@@ -17,6 +18,7 @@
   <button type="submit">Add stylist</button>
 </form>
 
+<h3>Clients:</h3>
 <% if @clients.any?() %>
   <ul>
     <% @clients.each() do |client| %>
