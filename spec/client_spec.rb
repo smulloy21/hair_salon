@@ -1,23 +1,27 @@
 require('spec_helper')
 
 describe(Client) do
+
   describe('#name') do
     it('returns the name of a client') do
       test_client = Client.new({:name => 'Steve', :phone => 555-3435})
       expect(test_client.name()).to(eq('Steve'))
     end
   end
+
   describe('#phone') do
     it('returns the name of a client') do
       test_client = Client.new({:name => 'Steve', :phone => 555-3435})
       expect(test_client.phone()).to(eq(555-3435))
     end
   end
+
   describe('.all') do
     it('should be empty at first') do
       expect(Client.all()).to(eq([]))
     end
   end
+
   describe('#==') do
     it('considers equal clients with the same id') do
       test_client = Client.new({:name => 'Steve', :phone => 555-3435})
@@ -25,6 +29,7 @@ describe(Client) do
       expect(test_client).to(eq(test_client2))
     end
   end
+
   describe('#save') do
     it('saves a client to the database') do
       test_client = Client.new({:name => 'Steve', :phone => 555-3435})
@@ -32,6 +37,7 @@ describe(Client) do
       expect(Client.all()).to(eq([test_client]))
     end
   end
+
   describe('.find') do
     it('finds a client by their id') do
       test_client = Client.new({:name => 'Steve', :phone => 555-3435})
@@ -39,6 +45,7 @@ describe(Client) do
       expect(Client.find(test_client.id())).to(eq(test_client))
     end
   end
+
   describe('#update') do
     it('updates a clients name and phone') do
       test_client = Client.new({:name => 'Steve', :phone => 555-3435})
@@ -54,12 +61,14 @@ describe(Client) do
       expect(test_client.stylist_id()).to(eq(5))
     end
   end
+
   describe('#delete') do
     it('deletes a client from the database') do
       test_client = Client.new({:name => 'Steve', :phone => 555-3435})
       test_client.save()
       test_client.delete()
-      expect(Client.find(test_client.id())).to(eq([])) 
+      expect(Client.find(test_client.id())).to(eq([]))
     end
   end
+  
 end
