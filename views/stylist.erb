@@ -1,31 +1,37 @@
 <h2><%= @stylist.name() %></h2>
+<div class="row well text-center">
+  <div class="col-md-8 col-md-offset-2">
+    <h3>Clients:</h3>
 
-<h3>Clients:</h3>
-
-<% if @stylist.clients.any? %>
-  <ul>
-    <% @stylist.clients.each() do |client| %>
-      <li><a href="/client/<%= client.id() %>"><%= client.name() %></a></li>
+    <% if @stylist.clients.any? %>
+      <ul class="list-unstyled">
+        <% @stylist.clients.each() do |client| %>
+          <li><a href="/client/<%= client.id() %>"><%= client.name() %></a></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <h3><%= @stylist.name() %> currently has no clients.</h3>
     <% end %>
-  </ul>
-<% else %>
-  <h3><%= @stylist.name() %> currently has no clients.</h3>
-<% end %>
+  </div>
+</div>
+<div class="row text-center">
+  <div class="col-xs-7">
+    <h4>Update <%= @stylist.name %>'s Info:</h4>
 
-<h4>Update <%= @stylist.name %>'s Info:</h4>
+    <form class="" action="/stylist/<%= @stylist.id() %>" method="post">
+      <input type="hidden" name="_method" value="patch">
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name">
+      <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+  </div>
+  <div class="col-xs-5">
+    <h4>Delete <%= @stylist.name %>:</h4>
 
-<form class="" action="/stylist/<%= @stylist.id() %>" method="post">
-  <input type="hidden" name="_method" value="patch">
-  <label for="name">Name:</label>
-  <input type="text" name="name" id="name">
-  <button type="submit">Update</button>
-</form>
-
-<h4>Delete <%= @stylist.name %>:</h4>
-
-<form class="" action="/stylist/<%= @stylist.id() %>" method="post">
-  <input type="hidden" name="_method" value="delete">
-  <button type="submit">Delete</button>
-</form>
-
+    <form class="" action="/stylist/<%= @stylist.id() %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+  </div>
+</div>
 <a href="/">Home</a>
