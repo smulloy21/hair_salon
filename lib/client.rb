@@ -26,6 +26,13 @@ class Client
     result = DB.exec("INSERT INTO clients (name, phone) VALUES ('#{@name}', '#{@phone}') RETURNING id;")
     @id = result.first().fetch('id').to_i()
   end
+  define_singleton_method(:find) do |id|
+    Client.all().each() do |client|
+      if client.id() == id
+        return client
+      end
+    end
+  end
   define_method(:update) do |attributes|
     @name = attributes.fetch(:name, @name)
     @phone = attributes.fetch(:phone, @phone)
@@ -34,5 +41,8 @@ class Client
       @stylist_id = attributes.fetch(:stylist_id)
       DB.exec("UPDATE clients SET stylist_id = #{stylist_id} WHERE id = #{self.id()};")
     end
+  end
+  define_method(:delete) do
+    DB.exec("DELETE FROM clients WHERE id = #{self.id()};")
   end
 end
