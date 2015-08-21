@@ -15,7 +15,7 @@ get('/') do
 end
 
 post('/new_stylist') do
-  name = params.fetch('name')
+  name = params.fetch('stylist_name')
   stylist = Stylist.new({:name => name})
   stylist.save()
   redirect('/')
@@ -42,8 +42,14 @@ patch('/stylist/:id') do
 end
 
 delete('/stylist/:id') do
-  @stylist = Stylist.find(params.fetch('id').to_i())
+  id = params.fetch('id').to_i()
+  @stylist = Stylist.find(id)
   @stylist.delete()
+  Client.all().each() do |client|
+    if client.stylist_id == id
+      client.remove_stylist()
+    end
+  end
   redirect('/')
 end
 

@@ -1,42 +1,36 @@
 <h2>Cutting Edge Hair Salon</h2>
-<div class="row text-center well">
-<div class="col-md-5 col-xs-6">
-  <h3>Stylists:</h3>
-  <% if @stylists.any?() %>
-    <ul class="list-unstyled">
-      <% @stylists.each() do |stylist| %>
-        <li><a href="/stylist/<%= stylist.id() %>"><%= stylist.name() %></a></li>
-      <% end %>
-    </ul>
-  <% else %>
-    <h3>You currently have no stylists</h3>
-  <% end %>
-  <h4>Add stylist:</h4>
-  <form class="" action="/new_stylist" method="post">
-    <!-- <label for="name">Name:</label> -->
-    <input type="text" name="name" id="name" placeholder="Name"><br>
-    <button type="submit" class="btn btn-primary">Add stylist</button>
-  </form>
-</div>
 
-<div class="col-md-5 col-md-offset-2 col-xs-6">
-  <h3>Clients:</h3>
-  <% if @clients.any?() %>
-    <ul class="list-unstyled">
-      <% @clients.each() do |client| %>
-        <li><a href="/client/<%= client.id() %>"><%= client.name() %></a></li>
-      <% end %>
-    </ul>
-  <% else %>
-    <h3>You currently have no clients</h3>
-  <% end %>
-  <h4>Add client:</h4>
-  <form class="" action="/new_client" method="post">
-    <!-- <label for="name">Name:</label> -->
-    <input type="text" name="name" id="name" placeholder="Name"><br>
-    <!-- <label for="phone">Phone:</label> -->
-    <input type="text" name="phone" id="phone" placeholder="Phone"><br>
-    <button type="submit" class="btn btn-primary">Add client</button>
-  </form>
-</div>
-</div>
+<h3>Stylists:</h3>
+<% if @stylists.any?() %>
+  <ul class="list-unstyled">
+    <% @stylists.each() do |stylist| %>
+      <li><a href="/stylist/<%= stylist.id() %>"><%= stylist.name() %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <h3>You currently have no stylists</h3>
+<% end %>
+
+<h4>Add stylist:</h4>
+<form class="" action="/new_stylist" method="post">
+  <input type="text" name="stylist_name" id="stylist_name" placeholder="Name"><br>
+  <button type="submit" class="btn btn-primary">Add stylist</button>
+</form>
+
+<h3>Clients:</h3>
+<% if @clients.any?() %>
+  <ul class="list-unstyled">
+    <% @clients.each() do |client| %>
+      <li><a href="/client/<%= client.id() %>"><%= client.name() %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <h3>You currently have no clients</h3>
+<% end %>
+
+<h4>Add client:</h4>
+<form class="" action="/new_client" method="post">
+  <input type="text" name="name" id="name" placeholder="Name"><br>
+  <input type="text" name="phone" id="phone" placeholder="Phone"><br>
+  <button type="submit" class="btn btn-primary">Add client</button>
+</form>
