@@ -60,8 +60,11 @@ describe(Stylist) do
     it('lists the clients of a stylist') do
       test_stylist = Stylist.new({:name => 'Megan'})
       test_stylist.save()
-      test_client = Client.new({:name => 'Steve', :phone => 555-3435, :stylist_id => test_stylist.id()})
+      test_client = Client.new({:name => 'Jane', :phone => 555-3435})
       test_client.save()
+      test_client.update({:stylist_id => test_stylist.id()})
+      test_client2 = Client.new({:name => 'Steve', :phone => 555-3435})
+      test_client2.save()
       expect(test_stylist.clients()).to(eq([test_client]))
     end
   end

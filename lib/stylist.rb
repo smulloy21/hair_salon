@@ -44,9 +44,10 @@ class Stylist
     clients = []
     Client.all().each() do |client|
       if client.stylist_id == self.id()
-        clients.push([client])
+        clients.push(client)
       end
     end
+    clients
   end
 
   define_method(:delete) do

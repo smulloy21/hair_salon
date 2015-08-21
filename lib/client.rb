@@ -15,7 +15,7 @@ class Client
     returned_clients.each() do |client|
       id = client.fetch('id').to_i()
       name = client.fetch('name')
-      phone = client.fetch('phone').to_i()
+      phone = client.fetch('phone')
       stylist_id = client.fetch('stylist_id').to_i()
       clients.push(Client.new({:id => id, :name => name, :phone => phone, :stylist_id => stylist_id}))
     end

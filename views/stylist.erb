@@ -1,0 +1,29 @@
+<h2><%= @stylist.name() %></h2>
+
+<h3>Clients:</h3>
+
+<% if @stylist.clients.any? %>
+  <ul>
+    <% @stylist.clients.each() do |client| %>
+      <li><a href="/client/<%= client.id() %>"><%= client.name() %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <h3><%= @stylist.name() %> currently has no clients.</h3>
+<% end %>
+
+<h4>Update <%= @stylist.name %>'s Info:</h4>
+
+<form class="" action="/stylist/<%= @stylist.id() %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <label for="name">Name:</label>
+  <input type="text" name="name" id="name">
+  <button type="submit">Update</button>
+</form>
+
+<h4>Delete <%= @stylist.name %>:</h4>
+
+<form class="" action="/stylist/<%= @stylist.id() %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button type="submit">Delete</button>
+</form>

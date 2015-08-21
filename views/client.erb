@@ -1,0 +1,22 @@
+<h2><%= @client.name() %></h2>
+
+<h3>Phone number: <%= @client.phone() %></h3>
+<h3>Stylist: </h3>
+
+<h4>Update <%= @client.name %>'s Info:</h4>
+
+<form class="" action="/client/<%= @client.id() %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <label for="name">Name:</label>
+  <input type="text" name="name" id="name">
+  <label for="phone">Phone:</label>
+  <input type="text" name="phone" id="phone">
+  <button type="submit">Update</button>
+</form>
+
+<h4>Delete <%= @client.name %>:</h4>
+
+<form class="" action="/client/<%= @client.id() %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button type="submit">Delete</button>
+</form>
