@@ -19,4 +19,20 @@ class Client
     end
     clients
   end
+  define_method(:==) do |other|
+    self.id == other.id
+  end
+  define_method(:save) do
+    result = DB.exec("INSERT INTO clients (name, phone) VALUES ('#{@name}', '#{@phone}') RETURNING id;")
+    @id = result.first().fetch('id').to_i()
+  end
+  define_method(:update) do |attributes|
+    @name = attributes.fetch(:name, @name)
+    @phone = attributes.fetch(:phone, @phone)
+    DB.exec("UPDATE clients SET name = '#{@name}', phone = '#{@phone}' WHERE id = #{self.id()};")
+    if attributes.include?(:stylist_id)
+      @stylist_id = attributes.fetch(:stylist_id)
+      DB.exec("UPDATE clients SET stylist_id = #{stylist_id} WHERE id = #{self.id()};")
+    end
+  end
 end
