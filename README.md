@@ -1,6 +1,6 @@
-# _Hair Salon App_
+# _Cutting Edge Hair Salon App_
 
-##### _Connects clients with stylists at a hair salon, 8/21/15_
+##### _Connects clients with stylists at a theoretical hair salon, 8/21/15_
 
 #### By _**Shannon Mulloy**_
 
@@ -15,7 +15,6 @@ _Add, update and delete clients and stylists. Add and remove a client's stylist.
 * _CREATE TABLE stylists (id serial PRIMARY KEY, name varchar);_
 * _CREATE TABLE clients (id serial PRIMARY KEY, name varchar, phone varchar, stylist_id int);_
 * _CREATE DATABASE hair_salon_test WITH TEMPLATE hair_salon;_
-
 * _In the command line:_
 * _Run bundle_
 * _Launch in Sinatra_
