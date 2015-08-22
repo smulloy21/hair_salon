@@ -12,7 +12,7 @@
   <h4>Choose a stylist:</h4>
   <form class="" action="/client/<%= @client.id() %>/add_stylist" method="post">
     <input type="hidden" name="_method" value="patch">
-    <select id='stylist_id' name='stylist_id' type='text' class='.selectpicker'>
+    <select id='stylist_id' name='stylist_id' type='text' class="selectwidth">
       <% @stylists.each() do |stylist| %>
       <option class="option" value="<%= stylist.id()%>"><h4><%= stylist.name() %></h4></option>
       <% end %>
