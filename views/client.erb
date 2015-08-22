@@ -12,9 +12,9 @@
   <h4>Choose a stylist:</h4>
   <form class="" action="/client/<%= @client.id() %>/add_stylist" method="post">
     <input type="hidden" name="_method" value="patch">
-    <select id='stylist_id' name='stylist_id' type='text'>
+    <select id='stylist_id' name='stylist_id' type='text' class='.selectpicker'>
       <% @stylists.each() do |stylist| %>
-      <option class="option" value="<%= stylist.id()%>"> <%= stylist.name() %> </option>
+      <option class="option" value="<%= stylist.id()%>"><h4><%= stylist.name() %></h4></option>
       <% end %>
     </select>
     <button type="submit" class="btn btn-primary btn">Choose stylist</button>
@@ -41,4 +41,4 @@
 <br>
 <br>
 
-<a href="/"><button class="btn btn-default">Home</button></a>
+<a href="/"><button class="btn btn-default btn-lg">Home</button></a>

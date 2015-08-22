@@ -10,6 +10,7 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  font-size: 1.5em;
 }
 .container {
   background-color: rgba(248, 192, 120, 0.85);
@@ -44,6 +45,9 @@ h3.underline {
 h4 {
   font-size: 1.5em;
 }
+select {
+  font-size: 16px;
+}
 li {
   font-size: 2em;
 }
@@ -66,5 +70,10 @@ li {
 @media screen and (max-width: 695px) {
   h1 {
     margin-bottom: .5em;
+  }
+}
+@media screen and (max-width: 440px) {
+  h1 {
+    font-size: 3.25em;
   }
 }
