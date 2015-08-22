@@ -1,0 +1,70 @@
+html {
+  min-height: 100%;
+}
+body {
+  min-height: 100%;
+  font-family: helvetica;
+  text-align: center;
+  background: url('img/bg.jpg') no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.container {
+  background-color: rgba(248, 192, 120, 0.85);
+  border-radius: 20px;
+  min-height: 90%;
+  margin: 2em auto;
+  padding: 1em;
+}
+h1, h2, h3, h4, button, li, a {
+  font-weight: 200;
+}
+h1 {
+  font-size: 4em;
+  border-bottom: 1px solid #333;
+  width: 80%;
+  margin: .5em auto 1em auto;
+}
+h2 {
+  font-size: 3.5em;
+}
+h2.underline {
+  width: 6em;
+  margin: .5em auto;
+}
+h3 {
+  font-size: 2.25em;
+}
+h3.underline {
+  width: 4.75em;
+  margin: .5em auto;
+}
+h4 {
+  font-size: 1.5em;
+}
+li {
+  font-size: 2em;
+}
+.underline {
+  border-bottom: 1px solid #333;
+}
+.left {
+  width: 50%;
+  float: left;
+}
+.right {
+  width: 50%;
+  float: right;
+}
+@media screen and (max-width: 995px) {
+  h1 {
+    font-size: 3.5em;
+  }
+}
+@media screen and (max-width: 695px) {
+  h1 {
+    margin-bottom: .5em;
+  }
+}

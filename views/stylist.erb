@@ -1,6 +1,6 @@
-<h2><%= @stylist.name() %></h2>
+<h2 class="underline"><%= @stylist.name() %></h2>
 
-<h3>Clients:</h3>
+<h3 class="underline">Clients:</h3>
 
 <% if @stylist.clients.any? %>
   <ul class="list-unstyled">
@@ -12,21 +12,24 @@
   <h3><%= @stylist.name() %> currently has no clients.</h3>
 <% end %>
 
+<br>
+<br>
+<br>
 
-<h4>Update <%= @stylist.name %>'s Info:</h4>
+<h4>Edit <%= @stylist.name() %>'s Info</h4>
 
 <form class="" action="/stylist/<%= @stylist.id() %>" method="post">
   <input type="hidden" name="_method" value="patch">
-  <label for="name">Name:</label>
-  <input type="text" name="name" id="name">
+  <input type="text" name="name" id="name" placeholder="name">
   <button type="submit" class="btn btn-primary">Update</button>
 </form>
 
-<h4>Delete <%= @stylist.name %>:</h4>
-
 <form class="" action="/stylist/<%= @stylist.id() %>" method="post">
   <input type="hidden" name="_method" value="delete">
-  <button type="submit" class="btn btn-danger">Delete</button>
+  <button type="submit" class="btn btn-danger">Delete <%= @stylist.name() %></button>
 </form>
 
-<a href="/">Home</a>
+<br>
+<br>
+
+<a href="/"><button class="btn btn-default">Home</button></a>
